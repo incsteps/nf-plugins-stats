@@ -222,6 +222,9 @@ const main = async () => {
     console.log(`Usage: node generate.js <token>`)
     return;
   }
+
+  if (!fs.existsSync(`content}`)) fs.mkdirSync(`content`)
+
   const plugins = await getPlugins();
   const names = groups.map((g) => g[0])
   for (let group of names) {
