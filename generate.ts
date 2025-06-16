@@ -1,7 +1,4 @@
 import fs, { writeFileSync } from "fs"
-import dotenv from "dotenv"
-
-dotenv.config()
 
 const groups = [
   [
@@ -100,7 +97,7 @@ const dumpPlugin = async (plugin: Plugin, token:string) => {
 
   if( !detail.sort ){
     const debug = JSON.stringify(detail, null, 2)
-    console.log(`No info for ${plugin.id}, ${debug} token ${process.env.GH_TOKEN}`)
+    console.log(`No info for ${plugin.id}, ${debug} token ${token}`)
     return;
   }
 
