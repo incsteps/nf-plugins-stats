@@ -201,6 +201,23 @@ If you have specific needs for a custom Nextflow plugin or any other bespoke sof
 (https://www.linkedin.com/in/jagedn/) or Mastodon (https://genomic.social/@jorge)
 to discuss your project requirements.
 
+## Comments
+
+<script src="https://giscus.app/client.js"
+        data-repo="incsteps/nf-plugins-stats"
+        data-repo-id="R_kgDOO8XWRw"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOO8XWR84Crzt3"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
 
 `,
   )
@@ -223,14 +240,12 @@ const main = async () => {
     return;
   }
 
-  if (!fs.existsSync(`content}`)) fs.mkdirSync(`content`)
-
   const plugins = await getPlugins();
   const names = groups.map((g) => g[0])
   for (let group of names) {
     const name = groupSlup(group as string)
     console.log(`Creating group name`)
-    if (!fs.existsSync(`content/${name}`)) fs.mkdirSync(`content/${name}`)
+    if (!fs.existsSync(`content/${name}`)) fs.mkdirSync(`content/${name}`, {recursive:true})
     dumpGroup(name, group as string)
   }
   for (let plugin of plugins) {
